@@ -59,7 +59,7 @@ export function PopupWidget() {
         {({ open }) => (
           <>
             <DisclosureButton className="fixed z-40 flex items-center justify-center transition duration-300 bg-indigo-500 rounded-full shadow-lg right-5 bottom-5 w-14 h-14 focus:outline-none hover:bg-indigo-600 focus:bg-indigo-600 ease">
-              <span className="sr-only">Open Contact form Widget</span>
+              <span className="sr-only">Άνοιξτε την φόρμα επικοινωνίας</span>
               <Transition
                 show={!open}
                 enter="transition duration-200 transform ease"
@@ -118,10 +118,12 @@ export function PopupWidget() {
               as="div"
             >
               <DisclosurePanel className=" flex flex-col  overflow-hidden left-0 h-full w-full sm:w-[350px] min-h-[250px] sm:h-[600px] border border-gray-300 dark:border-gray-800 bg-white shadow-2xl rounded-md sm:max-h-[calc(100vh-120px)]">
-                <div className="flex flex-col items-center justify-center h-32 p-5 bg-indigo-600">
-                  <h3 className="text-lg text-white">How can we help?</h3>
+                <div className="flex flex-col items-start justify-center h-32 p-5 bg-indigo-600">
+                  <h3 className="text-lg text-white">
+                    Πώς μπορούμε να βοηθήσουμε;
+                  </h3>
                   <p className="text-white opacity-50">
-                    We usually respond in a few hours
+                    Συνήθως απαντάμε εντώς μερικών ωρών.
                   </p>
                 </div>
                 <div className="flex-grow h-full p-6 overflow-auto bg-gray-50 ">
@@ -129,17 +131,17 @@ export function PopupWidget() {
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <input
                         type="hidden"
-                        value="YOUR_ACCESS_KEY_HERE"
-                        {...register("apikey")}
+                        value="f022a8f0-a9b9-4d30-9b3e-0fa6f9060eaa"
+                        {...register("f022a8f0-a9b9-4d30-9b3e-0fa6f9060eaa")}
                       />
                       <input
                         type="hidden"
-                        value={`${userName} sent a message from Nextly`}
+                        value={`${userName} έστειλε ένα μήνυμα μέσω της σελίδας`}
                         {...register("subject")}
                       />
                       <input
                         type="hidden"
-                        value="Nextly Template"
+                        value="GSS Electrician - Form"
                         {...register("from_name")}
                       />
                       <input
@@ -154,14 +156,14 @@ export function PopupWidget() {
                           htmlFor="full_name"
                           className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          Full Name
+                          Όνομα - Επώνυμο
                         </label>
                         <input
                           type="text"
                           id="full_name"
-                          placeholder="John Doe"
+                          placeholder="Γιώργος Γεωργακόπουλος"
                           {...register("name", {
-                            required: "Full name is required",
+                            required: "Όνομα & Επώνυμο",
                             maxLength: 80,
                           })}
                           className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
@@ -182,16 +184,17 @@ export function PopupWidget() {
                           htmlFor="email"
                           className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          Email Address
+                          Διεύθυνση Email
                         </label>
                         <input
                           type="email"
                           id="email"
                           {...register("email", {
-                            required: "Enter your email",
+                            required: "Εισάγετε το email σας",
                             pattern: {
                               value: /^\S+@\S+$/i,
-                              message: "Please enter a valid email",
+                              message:
+                                "Παρακαλώ εισάγετε σωστή διεύθυνση email.",
                             },
                           })}
                           placeholder="you@company.com"
@@ -214,16 +217,16 @@ export function PopupWidget() {
                           htmlFor="message"
                           className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          Your Message
+                          Μήνυμα
                         </label>
 
                         <textarea
                           rows={4}
                           id="message"
                           {...register("message", {
-                            required: "Enter your Message",
+                            required: "Γράψτε το μήνυμά σας",
                           })}
-                          placeholder="Your Message"
+                          placeholder="Το μήνυμά σας"
                           className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md h-28 focus:outline-none focus:ring   ${
                             errors.message
                               ? "border-red-600 focus:border-red-600 ring-red-100"
@@ -264,11 +267,11 @@ export function PopupWidget() {
                               ></path>
                             </svg>
                           ) : (
-                            "Send Message"
+                            "Αποστολή"
                           )}
                         </button>
                       </div>
-                      <p
+                      {/* <p
                         className="text-xs text-center text-gray-400"
                         id="result"
                       >
@@ -283,7 +286,7 @@ export function PopupWidget() {
                             Web3Forms
                           </a>
                         </span>
-                      </p>
+                      </p> */}
                     </form>
                   )}
 
@@ -304,14 +307,14 @@ export function PopupWidget() {
                         />
                       </svg>
                       <h3 className="py-5 text-xl text-green-500">
-                        Message sent successfully
+                        Το μήνυμα σας στάλθηκε επιτυχώς
                       </h3>
                       <p className="text-gray-700 md:px-3">{Message}</p>
                       <button
                         className="mt-6 text-indigo-600 focus:outline-none"
                         onClick={() => reset()}
                       >
-                        Go back
+                        Επιστροφή
                       </button>
                     </div>
                   )}
@@ -334,14 +337,14 @@ export function PopupWidget() {
                       </svg>
 
                       <h3 className="text-xl text-red-400 py-7">
-                        Oops, Something went wrong!
+                        Κάτι πήγε στραβά...
                       </h3>
                       <p className="text-gray-700 md:px-3">{Message}</p>
                       <button
                         className="mt-6 text-indigo-600 focus:outline-none"
                         onClick={() => reset()}
                       >
-                        Go back
+                        Επιστροφή
                       </button>
                     </div>
                   )}

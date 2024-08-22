@@ -60,7 +60,7 @@ export const Hero = () => {
           </div>
 
           <motion.div
-            className="flex flex-nowrap justify-center gap-10 mt-10 md:justify-around overflow-auto p-2"
+            className="flex flex-nowrap justify-start gap-10 mt-10 md:justify-around overflow-auto p-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{
