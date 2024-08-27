@@ -34,7 +34,12 @@ export function Footer() {
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              QR CODE HERE
+              <Image
+                src="/img/qrcode.png"
+                alt="QR Code"
+                width="120"
+                height="120"
+              />
             </div>
           </div>
 
