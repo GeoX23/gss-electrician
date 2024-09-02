@@ -74,9 +74,9 @@ export const Hero = () => {
           >
             <div className="pt-2 text-gray-400 dark:text-gray-400">
               <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
+                name="George G."
+                date="24/01/2023"
+                reviewText="Εξαιρετική ποιότητα εργασίας, τακτική και ασφαλής τοποθέτηση καλωδίων κι εξοπλισμού, τρία χρόνια λειτουργούμε απροβλημάτιστα το επαγγελματικό μας κτήριο."
               />
             </div>
 

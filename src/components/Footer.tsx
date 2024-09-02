@@ -105,13 +105,14 @@ export function Footer() {
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. Made with ♥ by{" "}
-          <a href="https://web3templates.com/" target="_blank" rel="noopener">
-            Web3Templates.
-          </a>{" "}
-          Illustrations from{" "}
-          <a href="https://www.glazestock.com/" target="_blank" rel="noopener ">
-            Glazestock
+          Copyright © {new Date().getFullYear()}. Created by{" "}
+          <a
+            href="https://www.linkedin.com/in/george-chervatidis-6773b716b/"
+            target="_blank"
+            rel="noopener"
+            className="text-blue-500 dark:text-blue-400 font-bold"
+          >
+            George Chervatidis.
           </a>
         </div>
       </Container>
