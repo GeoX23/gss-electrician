@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <>
-      <Container className="flex flex-wrap ">
+      <Container className="flex flex-wrap">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
@@ -82,57 +82,33 @@ export const Hero = () => {
 
             <div className="pt-2 text-gray-400 dark:text-gray-400">
               <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
+                name="Βασίλης Ν."
+                date="17/12/2022"
+                reviewText="Τον βρήκα στις 22:15 Παρασκευή βράδυ, του τηλεφώνησα γιατί ήμουν χωρίς ρεύμα στο σπίτι. Στις 23:00 κιόλας ήταν σπίτι μου χωρίς δεύτερη σκέψη, επαγγελματίας από τους λίγους.  Το πρόβλημα λύθηκε επιτόπου.  Ευχαριστώ πάρα πολύ!"
               />
             </div>
 
             <div className="pt-2 text-gray-400 dark:text-gray-400">
               <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
+                name="Ιωάννης Κλ."
+                date="23/12/2022"
+                reviewText="Σπάνιος επαγγελματίας που οικειοπειταί με το πρόβλημά σου, ευγενικός και πολύ προσεκτικός. Τον συνιστώ οπωσδήποτε."
               />
             </div>
 
             <div className="pt-2 text-gray-400 dark:text-gray-400">
               <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
+                name="Χρήστος Μ."
+                date="22/12/2022"
+                reviewText="Πολύ καλός επαγγελματίας, φαίνεται πως ξέρει την δουλειά που κάνει.  Το πιο βασικό, είναι καθαρός και σέβεται τον χώρο σου!"
               />
             </div>
 
             <div className="pt-2 text-gray-400 dark:text-gray-400">
               <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
-              />
-            </div>
-
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
-              />
-            </div>
-
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
-              />
-            </div>
-
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <Review
-                name="George Chervatidis"
-                date="20/08/2024"
-                reviewText="Amazing Service"
+                name="Μάγδα Χ."
+                date="22/12/2022"
+                reviewText="Άψογος!!!"
               />
             </div>
           </motion.div>

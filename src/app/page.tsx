@@ -12,8 +12,12 @@ export default function Home() {
   return (
     <Container>
       <Hero />
-      <SectionTitle preTitle="Υπηρεσίες" title=" Οι υπηρεσίες που παρέχουμε">
-        Ακολουθόντας υψηλά στάνταρ με επαγγελματισμό, ευθύνη και
+      <SectionTitle
+        id="ypiresies"
+        preTitle="Υπηρεσίες"
+        title=" Οι υπηρεσίες που παρέχουμε"
+      >
+        Ακολουθώντας υψηλά στάνταρ με επαγγελματισμό, ευθύνη και
         αποτελεσματικότητα.
       </SectionTitle>
 
@@ -30,13 +34,17 @@ export default function Home() {
 
       <Video videoId="fZ0D0cnR88E" /> */}
 
-      <SectionTitle preTitle="Έργα" title="Ολοκληρωμένα έργα από εμάς">
+      <SectionTitle
+        id="erga"
+        preTitle="Έργα"
+        title="Ολοκληρωμένα έργα από εμάς"
+      >
         Παρακάτω μπορείτε να δείτε ολοκληρωμένα έργα μας.
       </SectionTitle>
 
       <Testimonials />
 
-      <SectionTitle preTitle="FAQ" title="Συχνές ερωτήσεις">
+      <SectionTitle id="faq" preTitle="FAQ" title="Συχνές ερωτήσεις">
         Μπορείτε να βρείτε απαντήσεις σε συχνές ερωτήσεις που πιθανόν να έχετε
         σχετικά με τις υπηρεσίες μας.
       </SectionTitle>
