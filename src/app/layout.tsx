@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "GSS Electrician | Γιάννης Στεργιόπουλος",
   description:
-    "Αναλαμβάνουμε την υλοποίηση παντός ηλεκτρολογικών εγκαταστάσεων, έκδοση πιστοποιητικών ΔΕΗ και διάφορα ηλεκτρολογικές εργασίες.",
+    "Αναλαμβάνουμε την υλοποίηση παντός ηλεκτρολογικών εγκαταστάσεων, έκδοση πιστοποιητικών ΔΕΗ και ηλεκτρολογικών εργασιών.",
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="el" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class">
           <Navbar />
