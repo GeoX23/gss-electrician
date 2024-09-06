@@ -4,12 +4,27 @@ import React from "react";
 import { Container } from "@/components/Container";
 
 export function Footer() {
-  const navigation = ["Αρχική", "Υπηρεσίες", "Έργα", "Επικοινωνία"];
+  const navigation = [
+    "Αρχική",
+    "Υπηρεσίες",
+    // "Έργα",
+    "Συχνές ερωτήσεις",
+    "Επικοινωνία",
+  ];
+  // const links = ["#home", "#ypiresies", "#erga", "#faq", "#contact"];
+  const links = ["#home", "#ypiresies", "#faq", "#contact"];
   const legal = [
     "Γιάννης Στεργιόπουλος",
     "Ηλεκτρολόγος Μηχανικός",
     "+30 694 533 5942",
     "giannis.stergiopoulos@gmail.com",
+  ];
+
+  const legalLinks = [
+    "/",
+    "/",
+    "tel: +306945335942",
+    "mailto: giannis.stergiopoulos@gmail.com",
   ];
   return (
     <div className="relative">
@@ -44,11 +59,16 @@ export function Footer() {
           </div>
 
           <div>
+            <div className="mb-2 font-bold w-full -ml-3 lg:ml-0">
+              <h3 className="w-full px-4 py-2 text-indigo-600 rounded-md dark:text-gray-300 ">
+                Sitemap
+              </h3>
+            </div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {navigation.map((item, index) => (
                 <Link
                   key={index}
-                  href="/"
+                  href={links[index]}
                   className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
                 >
                   {item}
@@ -57,11 +77,16 @@ export function Footer() {
             </div>
           </div>
           <div>
+            <div id="contact" className="mb-2 font-bold w-full -ml-3 lg:ml-0">
+              <h3 className="w-full px-4 py-2 text-indigo-600 rounded-md dark:text-gray-300 ">
+                Επικοινωνία
+              </h3>
+            </div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {legal.map((item, index) => (
                 <Link
                   key={index}
-                  href="/"
+                  href={legalLinks[index]}
                   className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
                 >
                   {item}
@@ -110,7 +135,7 @@ export function Footer() {
             href="https://www.linkedin.com/in/george-chervatidis-6773b716b/"
             target="_blank"
             rel="noopener"
-            className="text-blue-500 dark:text-blue-400 font-bold"
+            className="text-indigo-600 dark:text-blue-400 font-bold"
           >
             George Chervatidis.
           </a>

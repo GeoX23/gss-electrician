@@ -59,7 +59,25 @@ export const Hero = () => {
             <span className="text-indigo-600">
               <strong>120 θετικές</strong>
             </span>{" "}
-            αξιολογήσεις
+            αξιολογήσεις <br />
+            σε{" "}
+            <a
+              href="https://www.facebook.com/profile.php?id=100067818661953"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-600 font-bold"
+            >
+              Facebook
+            </a>{" "}
+            και{" "}
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-600 font-bold"
+            >
+              Douleutaras
+            </a>
           </div>
 
           <motion.div

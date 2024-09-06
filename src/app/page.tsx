@@ -33,16 +33,16 @@ export default function Home() {
       </SectionTitle>
 
       <Video videoId="fZ0D0cnR88E" /> */}
-
+      {/* 
       <SectionTitle
         id="erga"
         preTitle="Έργα"
         title="Ολοκληρωμένα έργα από εμάς"
       >
         Παρακάτω μπορείτε να δείτε ολοκληρωμένα έργα μας.
-      </SectionTitle>
+      </SectionTitle> */}
 
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       <SectionTitle id="faq" preTitle="FAQ" title="Συχνές ερωτήσεις">
         Μπορείτε να βρείτε απαντήσεις σε συχνές ερωτήσεις που πιθανόν να έχετε
