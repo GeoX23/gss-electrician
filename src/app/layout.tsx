@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "GSS Electrician | Γιάννης Στεργιόπουλος",
   description:
     "Αναλαμβάνουμε την υλοποίηση παντός ηλεκτρολογικών εγκαταστάσεων, έκδοση πιστοποιητικών ΔΕΗ και ηλεκτρολογικών εργασιών.",
+  verification: { google: "BpgWAFQ6S5TBfJ8nWa8pgScRxsv7bMm7M4CxS-TI0XA" },
 };
 
 export default function RootLayout({
