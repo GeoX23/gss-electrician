@@ -15,16 +15,16 @@ export function Footer() {
   const links = ["#home", "#ypiresies", "#faq", "#contact"];
   const legal = [
     "Γιάννης Στεργιόπουλος",
-    "Ηλεκτρολόγος Μηχανικός",
+    "Ηλεκτρολόγος",
     "+30 694 533 5942",
-    "giannis.stergiopoulos@gmail.com",
+    "electrician.stergiopoulos@gmail.com",
   ];
 
   const legalLinks = [
     "/",
     "/",
     "tel: +306945335942",
-    "mailto: giannis.stergiopoulos@gmail.com",
+    "mailto: electrician.stergiopoulos@gmail.com",
   ];
   return (
     <div className="relative">
