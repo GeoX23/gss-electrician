@@ -66,3 +66,8 @@
     max-width: unset;
   }
 }
+
+#fbLogo svg:hover {
+  fill: #1877f2;
+  scale: 1.2;
+}

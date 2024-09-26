@@ -12,7 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GSS Electrician | Γιάννης Στεργιόπουλος | Ηλεκτρολόγος - Αττική",
+  title: "GSS Electrician | Στεργιόπουλος Ιωάννης | Ηλεκτρολόγος - Αττική",
   description:
     "Αναλαμβάνουμε την υλοποίηση παντός ηλεκτρολογικών εγκαταστάσεων, έκδοση πιστοποιητικών ΔΕΗ και ηλεκτρολογικών εργασιών.",
   verification: { google: "BpgWAFQ6S5TBfJ8nWa8pgScRxsv7bMm7M4CxS-TI0XA" },

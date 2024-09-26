@@ -14,7 +14,7 @@ export function Footer() {
   // const links = ["#home", "#ypiresies", "#erga", "#faq", "#contact"];
   const links = ["#home", "#ypiresies", "#faq", "#contact"];
   const legal = [
-    "Γιάννης Στεργιόπουλος",
+    "Στεργιόπουλος Ιωάννης",
     "Ηλεκτρολόγος",
     "+30 694 533 5942",
     "electrician.stergiopoulos@gmail.com",
@@ -93,27 +93,27 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-          </div>
-          {/* <div className="">
-            <div>Follow us</div>
-            <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              <a
+            <div className="lg:px-4 mt-8 text-indigo-600 rounded-md dark:text-gray-300 font-bold">
+              <div>Ακολουθήστε μας</div>
+              <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
+                {/* <a
                 href="https://twitter.com/web3templates"
                 target="_blank"
                 rel="noopener"
               >
                 <span className="sr-only">Twitter</span>
                 <Twitter />
-              </a>
-              <a
-                href="https://facebook.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Facebook</span>
-                <Facebook />
-              </a>
-              <a
+              </a> */}
+                <a
+                  href="https://www.facebook.com/profile.php?id=100067818661953"
+                  target="_blank"
+                  rel="noopener"
+                  id="fbLogo"
+                >
+                  <span className="sr-only">Facebook</span>
+                  <Facebook />
+                </a>
+                {/* <a
                 href="https://instagram.com/web3templates"
                 target="_blank"
                 rel="noopener"
@@ -124,9 +124,10 @@ export function Footer() {
               <a href="https://linkedin.com/" target="_blank" rel="noopener">
                 <span className="sr-only">Linkedin</span>
                 <Linkedin />
-              </a>
+              </a> */}
+              </div>
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">

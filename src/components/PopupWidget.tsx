@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import {
   Disclosure,
@@ -12,6 +12,7 @@ export function PopupWidget() {
   const {
     register,
     handleSubmit,
+    setValue,
     reset,
     control,
     formState: { errors, isSubmitSuccessful, isSubmitting },
@@ -22,7 +23,18 @@ export function PopupWidget() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [Message, setMessage] = useState("");
 
-  const userName = useWatch({ control, name: "name", defaultValue: "Someone" });
+  const userName = useWatch({
+    control,
+    name: "name",
+    defaultValue: "Someone",
+  });
+
+  useEffect(() => {
+    setValue(
+      "subject",
+      `${userName} έστειλε από την φόρμα του GSS Electrician`
+    );
+  }, [userName, setValue]);
 
   const onSubmit = async (data: any, e: any) => {
     console.log(data);
@@ -58,7 +70,10 @@ export function PopupWidget() {
       <Disclosure>
         {({ open }) => (
           <>
-            <DisclosureButton className="fixed z-40 flex items-center justify-center transition duration-300 bg-indigo-500 rounded-full shadow-lg right-5 bottom-5 w-14 h-14 focus:outline-none hover:bg-indigo-600 focus:bg-indigo-600 ease">
+            <DisclosureButton
+              id="prosforesBtn"
+              className="fixed z-40 flex items-center justify-center transition duration-300 bg-indigo-500 rounded-full shadow-lg right-5 bottom-5 w-14 h-14 focus:outline-none hover:bg-indigo-600 focus:bg-indigo-600 ease"
+            >
               <span className="sr-only">Άνοιξτε την φόρμα επικοινωνίας</span>
               <Transition
                 show={!open}
@@ -132,7 +147,7 @@ export function PopupWidget() {
                       <input
                         type="hidden"
                         value="f022a8f0-a9b9-4d30-9b3e-0fa6f9060eaa"
-                        {...register("f022a8f0-a9b9-4d30-9b3e-0fa6f9060eaa")}
+                        {...register("access_key")}
                       />
                       <input
                         type="hidden"
@@ -208,6 +223,39 @@ export function PopupWidget() {
                         {errors.email && (
                           <div className="mt-1 text-sm text-red-400 invalid-feedback">
                             {errors.email.message as string}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="mb-4">
+                        <label
+                          htmlFor="phone"
+                          className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                        >
+                          Τηλέφωνο επικοινωνίας
+                        </label>
+                        <input
+                          type="phone"
+                          id="phone"
+                          {...register("phone", {
+                            required: "Εισάγετε το τηλέφωνο σας",
+                            pattern: {
+                              value: /^(2\d|69)\d{8}$/g,
+                              message:
+                                "Παρακαλώ εισάγετε σωστό αριθμό τηλεφώνου.",
+                            },
+                          })}
+                          placeholder="6941414141"
+                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
+                            errors.phone
+                              ? "border-red-600 focus:border-red-600 ring-red-100"
+                              : "border-gray-300 focus:border-indigo-600 ring-indigo-100"
+                          }`}
+                        />
+
+                        {errors.phone && (
+                          <div className="mt-1 text-sm text-red-400 invalid-feedback">
+                            {errors.phone.message as string}
                           </div>
                         )}
                       </div>
