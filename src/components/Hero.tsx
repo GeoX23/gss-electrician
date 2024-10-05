@@ -74,7 +74,7 @@ export const Hero = () => {
             </a>{" "}
             και{" "}
             <a
-              href=""
+              href="https://www.douleutaras.gr/dashboard-v2/profile/giannisstergiopoulos/?ref=Admin%20page"
               target="_blank"
               rel="noopener noreferrer"
               className="text-indigo-600 font-bold"
