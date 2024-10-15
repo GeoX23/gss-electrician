@@ -12,49 +12,56 @@ export const Hero = () => {
 
   return (
     <>
-      <Container className="flex flex-wrap">
-        <div className="flex items-center w-full lg:w-1/2">
-          <div className="max-w-2xl mb-8">
-            <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
-              Στεργιόπουλος Ιωάννης <br />
-              <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
-                Ηλεκτρολόγος
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <Container className="flex flex-wrap">
+          <div className="flex items-center w-full lg:w-1/2">
+            <div className="max-w-2xl mb-8">
+              <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+                Στεργιόπουλος Ιωάννης <br />
+                <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
+                  Ηλεκτρολόγος
+                </p>
+              </h1>
+              <p className="py-5 text-md leading-normal text-gray-500 lg:text-md xl:text-md dark:text-gray-300">
+                Παρέχουμε υπηρεσίες υψηλού επιπέδου με τεχνογνωσία και συνέπεια.
+                Διεκπαιρεώνουμε μια ευρεία γκάμα ηλεκτρολογικών έργων, από μικρά
+                έως και πολύπλοκα, και είμαστε πάντα στη διάθεσή σας για να
+                καλύψουμε κάθε ηλεκτρολογική ανάγκη σας!
               </p>
-            </h1>
-            <p className="py-5 text-md leading-normal text-gray-500 lg:text-md xl:text-md dark:text-gray-300">
-              Παρέχουμε υπηρεσίες υψηλού επιπέδου με τεχνογνωσία και συνέπεια.
-              Διεκπαιρεώνουμε μια ευρεία γκάμα ηλεκτρολογικών έργων, από μικρά
-              έως και πολύπλοκα, και είμαστε πάντα στη διάθεσή σας για να
-              καλύψουμε κάθε ηλεκτρολογική ανάγκη σας!
-            </p>
 
-            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
-              <button
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md "
-                onClick={clickProsfores}
-              >
-                Ζητήστε προσφορά
-              </button>
+              <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+                <button
+                  className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md "
+                  onClick={clickProsfores}
+                >
+                  Ζητήστε προσφορά
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center justify-center w-full lg:w-1/2">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src={heroImg}
-              width="616"
-              height="617"
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-            />
-          </motion.div>
-        </div>
-      </Container>
+          <div className="flex items-center justify-center w-full lg:w-1/2">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src={heroImg}
+                width="616"
+                height="617"
+                className={"object-cover"}
+                alt="Hero Illustration"
+                loading="eager"
+              />
+            </motion.div>
+          </div>
+        </Container>
+      </motion.div>
       <Container>
         <div className="flex flex-col justify-center" id="reviews">
           <div className="text-xl text-center text-gray-700 dark:text-white">
@@ -70,7 +77,7 @@ export const Hero = () => {
               rel="noopener noreferrer"
               className="text-indigo-600 font-bold"
             >
-              Facebook
+              <u>Facebook</u>
             </a>{" "}
             και{" "}
             <a
@@ -79,7 +86,7 @@ export const Hero = () => {
               rel="noopener noreferrer"
               className="text-indigo-600 font-bold"
             >
-              Douleutaras
+              <u>Douleutaras</u>
             </a>
           </div>
 

@@ -4,10 +4,6 @@ import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
 
-import userOneImg from "../../public/img/user1.jpg";
-import userTwoImg from "../../public/img/user2.jpg";
-import userThreeImg from "../../public/img/user3.jpg";
-
 import { useState } from "react";
 
 interface GalleryItemProps {
@@ -16,9 +12,49 @@ interface GalleryItemProps {
   title: string;
 }
 
-const GalleryItem: React.FC<GalleryItemProps> = ({ src, alt, title }) => {
+import { motion, AnimatePresence } from "framer-motion";
+
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+}
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+
   return (
-    <div className="flex flex-col items-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-3xl max-h-[90vh] overflow-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const GalleryItem: React.FC<GalleryItemProps & { onClick: () => void }> = ({
+  src,
+  alt,
+  title,
+  onClick,
+}) => {
+  return (
+    <div
+      className="flex flex-col items-center cursor-pointer"
+      onClick={onClick}
+    >
       <div className="w-full h-64 relative overflow-hidden rounded-lg">
         <Image
           src={src}
@@ -46,70 +82,95 @@ export const Gallery: React.FC = () => {
     },
   ]);
 
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const openModal = (index: number) => setSelectedIndex(index);
+  const closeModal = () => setSelectedIndex(null);
+
+  const navigateGallery = (direction: "prev" | "next") => {
+    if (selectedIndex === null) return;
+    const newIndex =
+      (selectedIndex + (direction === "next" ? 1 : -1) + items.length) %
+      items.length;
+    setSelectedIndex(newIndex);
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {items.map((item, index) => (
-        <GalleryItem key={index} {...item} />
-      ))}
-    </div>
+    <Container>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map((item, index) => (
+          <GalleryItem key={index} {...item} onClick={() => openModal(index)} />
+        ))}
+      </div>
+      <AnimatePresence>
+        {selectedIndex !== null && (
+          <Modal isOpen={true} onClose={closeModal}>
+            <div className="relative">
+              <Image
+                src={items[selectedIndex].src}
+                alt={items[selectedIndex].alt}
+                width={800}
+                height={600}
+                objectFit="contain"
+              />
+              <button
+                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white dark:bg-gray-800 p-2 rounded-full"
+                onClick={() => navigateGallery("prev")}
+              >
+                ←
+              </button>
+              <button
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white dark:bg-gray-800 p-2 rounded-full"
+                onClick={() => navigateGallery("next")}
+              >
+                →
+              </button>
+            </div>
+            <h3 className="mt-4 text-xl font-semibold text-center text-gray-800 dark:text-gray-200">
+              {items[selectedIndex].title}
+            </h3>
+          </Modal>
+        )}
+      </AnimatePresence>
+    </Container>
   );
 };
 
-// export const Testimonials = () => {
+// const GalleryItem: React.FC<GalleryItemProps> = ({ src, alt, title }) => {
 //   return (
-//     <Container>
-//       <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
-//         <div className="lg:col-span-2 xl:col-auto">
-//           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-//             <p className="text-2xl leading-normal ">
-//               Share a real <Mark>testimonial</Mark>
-//               that hits some of your benefits from one of your popular customer.
-//             </p>
-
-//             <Avatar
-//               image={userOneImg}
-//               name="Sarah Steiner"
-//               // title="VP Sales at Google"
-//             />
-//           </div>
-//         </div>
+//     <div className="flex flex-col items-center">
+//       <div className="w-full h-64 relative overflow-hidden rounded-lg">
+//         <Image
+//           src={src}
+//           alt={alt}
+//           layout="fill"
+//           objectFit="cover"
+//           className="transition-transform duration-300 hover:scale-110"
+//         />
 //       </div>
-//     </Container>
+//       <h3 className="mt-4 text-lg font-semibold text-gray-800 dark:text-gray-200">
+//         {title}
+//       </h3>
+//     </div>
 //   );
 // };
 
-// interface AvatarProps {
-//   image: any;
-//   name: string;
-//   // title: string;
-// }
+// export const Gallery: React.FC = () => {
+//   const [items] = useState<GalleryItemProps[]>([
+//     { src: "/img/gallery1.jpg", alt: "Gallery Image 1", title: "Project One" },
+//     { src: "/img/gallery2.jpg", alt: "Gallery Image 2", title: "Project Two" },
+//     {
+//       src: "/img/gallery3.jpg",
+//       alt: "Gallery Image 3",
+//       title: "Project Three",
+//     },
+//   ]);
 
-// function Avatar(props: Readonly<AvatarProps>) {
 //   return (
-//     <div className="flex items-center mt-8 space-x-3">
-//       <div className="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
-//         <Image
-//           src={props.image}
-//           width="40"
-//           height="40"
-//           alt="Avatar"
-//           placeholder="blur"
-//         />
-//       </div>
-//       <div>
-//         <div className="text-lg font-medium">{props.name}</div>
-//       </div>
+//     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+//       {items.map((item, index) => (
+//         <GalleryItem key={index} {...item} />
+//       ))}
 //     </div>
 //   );
-// }
-
-// function Mark(props: { readonly children: React.ReactNode }) {
-//   return (
-//     <>
-//       {" "}
-//       <mark className="text-indigo-800 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
-//         {props.children}
-//       </mark>{" "}
-//     </>
-//   );
-// }
+// };

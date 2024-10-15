@@ -20,7 +20,7 @@ export const Navbar = () => {
 
   return (
     <div className="w-full z-50 text-center flex justify-center sticky top-0  shadow-md">
-      <nav className="w-full max-w-[1536px] flex flex-wrap items-center justify-between p-8 pt-4 pb-4 mx-auto lg:justify-between bg-white dark:bg-trueGray-900">
+      <nav className="w-full max-w-[1536px] flex flex-wrap items-center justify-between p-8 pt-4 pb-2 mx-auto lg:justify-between bg-white dark:bg-trueGray-900">
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
@@ -34,7 +34,7 @@ export const Navbar = () => {
                         alt="N"
                         width="80"
                         height="80"
-                        className="w-[100px] lg:w-[140px]"
+                        className="w-[100px] lg:w-[180px]"
                       />
                     </span>
                   </span>
