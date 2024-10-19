@@ -124,37 +124,37 @@ export const Gallery: React.FC = () => {
       title: "Οικιακές Εγκαταστάσεις",
       photos: [
         {
-          src: "/img/gallery1-2.jpg",
+          src: "/img/cat2/gallery1-2.jpg",
           alt: "Gallery Image 2-1",
           title: "",
         },
         {
-          src: "/img/gallery2-2.jpg",
+          src: "/img/cat2/gallery2-2.jpg",
           alt: "Gallery Image 2-2",
           title: "",
         },
         {
-          src: "/img/gallery3-2.jpg",
+          src: "/img/cat2/gallery3-2.jpg",
           alt: "Gallery Image 3-2",
           title: "",
         },
         {
-          src: "/img/gallery4-2.jpg",
+          src: "/img/cat2/gallery4-2.jpg",
           alt: "Gallery Image 4-2",
           title: "",
         },
         {
-          src: "/img/gallery5-2.jpg",
+          src: "/img/cat2/gallery5-2.jpg",
           alt: "Gallery Image 5-2",
           title: "",
         },
         {
-          src: "/img/gallery6-2.jpg",
+          src: "/img/cat2/gallery6-2.jpg",
           alt: "Gallery Image 6-2",
           title: "",
         },
         {
-          src: "/img/gallery7-2.jpg",
+          src: "/img/cat2/gallery7-2.jpg",
           alt: "Gallery Image 7-2",
           title: "",
         },
@@ -196,6 +196,11 @@ export const Gallery: React.FC = () => {
         {
           src: "/img/cat3/gallery7-3.jpg",
           alt: "Gallery Image 3-7",
+          title: "",
+        },
+        {
+          src: "/img/cat3/gallery8-3.jpg",
+          alt: "Gallery Image 3-8",
           title: "",
         },
       ],
