@@ -71,3 +71,14 @@
   fill: #1877f2;
   scale: 1.2;
 }
+
+#igLogo svg:hover {
+  fill: #c13584;
+  scale: 1.2;
+}
+
+.openModalImage {
+  width: unset;
+  max-height: 600px;
+  object-fit: contain;
+}

@@ -11,12 +11,12 @@ export const Navbar = () => {
   const navigation = [
     "Αρχική",
     "Υπηρεσίες",
-    // "Έργα",
+    "Έργα",
     "Συχνές ερωτήσεις",
     "Επικοινωνία",
   ];
-  // const links = ["#home", "#ypiresies", "#erga", "#faq", "#contact"];
-  const links = ["#home", "#ypiresies", "#faq", "#contact"];
+  const links = ["#home", "#ypiresies", "#erga", "#faq", "#contact"];
+  // const links = ["#home", "#ypiresies", "#faq", "#contact"];
 
   return (
     <div className="w-full z-50 text-center flex justify-center sticky top-0  shadow-md">

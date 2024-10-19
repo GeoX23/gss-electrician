@@ -7,12 +7,11 @@ export function Footer() {
   const navigation = [
     "Αρχική",
     "Υπηρεσίες",
-    // "Έργα",
+    "Έργα",
     "Συχνές ερωτήσεις",
     "Επικοινωνία",
   ];
-  // const links = ["#home", "#ypiresies", "#erga", "#faq", "#contact"];
-  const links = ["#home", "#ypiresies", "#faq", "#contact"];
+  const links = ["#home", "#ypiresies", "#erga", "#faq", "#contact"];
   const legal = [
     "Στεργιόπουλος Ιωάννης",
     "Ηλεκτρολόγος",
@@ -113,15 +112,16 @@ export function Footer() {
                   <span className="sr-only">Facebook</span>
                   <Facebook />
                 </a>
-                {/* <a
-                href="https://instagram.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Instagram</span>
-                <Instagram />
-              </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener">
+                <a
+                  href="https://www.instagram.com/gsselectrician/"
+                  target="_blank"
+                  rel="noopener"
+                  id="igLogo"
+                >
+                  <span className="sr-only">Instagram</span>
+                  <Instagram />
+                </a>
+                {/* <a href="https://linkedin.com/" target="_blank" rel="noopener">
                 <span className="sr-only">Linkedin</span>
                 <Linkedin />
               </a> */}
