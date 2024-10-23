@@ -17,6 +17,7 @@ export function Footer() {
     "Ηλεκτρολόγος",
     "+30 694 533 5942",
     "electrician.stergiopoulos@gmail.com",
+    "Δελμησού 1, Νίκαια Πειραιά",
   ];
 
   const legalLinks = [
@@ -24,6 +25,7 @@ export function Footer() {
     "/",
     "tel: +306945335942",
     "mailto: electrician.stergiopoulos@gmail.com",
+    "https://maps.app.goo.gl/jiDWDH9oy6BDr6Wo7",
   ];
   return (
     <div className="relative">
@@ -73,6 +75,42 @@ export function Footer() {
                   {item}
                 </Link>
               ))}
+
+              <div className="lg:px-4 mt-8 text-indigo-600 rounded-md dark:text-gray-300 font-bold px-4">
+                <div>Ακολουθήστε μας</div>
+                <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
+                  {/* <a
+                href="https://twitter.com/web3templates"
+                target="_blank"
+                rel="noopener"
+              >
+                <span className="sr-only">Twitter</span>
+                <Twitter />
+              </a> */}
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100067818661953"
+                    target="_blank"
+                    rel="noopener"
+                    id="fbLogo"
+                  >
+                    <span className="sr-only">Facebook</span>
+                    <Facebook />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/gsselectrician/"
+                    target="_blank"
+                    rel="noopener"
+                    id="igLogo"
+                  >
+                    <span className="sr-only">Instagram</span>
+                    <Instagram />
+                  </a>
+                  {/* <a href="https://linkedin.com/" target="_blank" rel="noopener">
+                <span className="sr-only">Linkedin</span>
+                <Linkedin />
+              </a> */}
+                </div>
+              </div>
             </div>
           </div>
           <div>
@@ -91,41 +129,14 @@ export function Footer() {
                   {item}
                 </Link>
               ))}
-            </div>
-            <div className="lg:px-4 mt-8 text-indigo-600 rounded-md dark:text-gray-300 font-bold">
-              <div>Ακολουθήστε μας</div>
-              <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-                {/* <a
-                href="https://twitter.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Twitter</span>
-                <Twitter />
-              </a> */}
-                <a
-                  href="https://www.facebook.com/profile.php?id=100067818661953"
-                  target="_blank"
-                  rel="noopener"
-                  id="fbLogo"
-                >
-                  <span className="sr-only">Facebook</span>
-                  <Facebook />
-                </a>
-                <a
-                  href="https://www.instagram.com/gsselectrician/"
-                  target="_blank"
-                  rel="noopener"
-                  id="igLogo"
-                >
-                  <span className="sr-only">Instagram</span>
-                  <Instagram />
-                </a>
-                {/* <a href="https://linkedin.com/" target="_blank" rel="noopener">
-                <span className="sr-only">Linkedin</span>
-                <Linkedin />
-              </a> */}
-              </div>
+
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.36165570139!2d23.640334976489143!3d37.96868847193712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bba1c871ee31%3A0xd7374db5643547f6!2sDelmisou%201%2C%20Nikea%20184%2051!5e0!3m2!1sen!2sgr!4v1729691560227!5m2!1sen!2sgr"
+                width="400"
+                height="250"
+                loading="lazy"
+                className="px-4"
+              ></iframe>
             </div>
           </div>
         </div>
