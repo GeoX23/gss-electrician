@@ -6,6 +6,7 @@
   html,
   body {
     @apply dark:bg-trueGray-900;
+    overflow-x: hidden;
   }
 }
 

@@ -5,6 +5,8 @@ import { Container } from "@/components/Container";
 import heroImg from "../../public/img/hero.png";
 import { Review } from "./Review";
 import { motion } from "framer-motion";
+import { CarouselComp } from "./Carousel";
+
 export const Hero = () => {
   function clickProsfores(e: any) {
     document.getElementById("prosforesBtn")?.click();
@@ -18,16 +20,16 @@ export const Hero = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <Container className="flex flex-wrap">
+        <Container className="flex flex-wrap sm:flex-row  flex-col-reverse">
           <div className="flex items-center w-full lg:w-1/2">
             <div className="max-w-2xl mb-8">
               <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
                 Στεργιόπουλος Ιωάννης <br />
-                <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
+                <p className="py-2 lg:py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
                   Ηλεκτρολόγος
                 </p>
               </h1>
-              <p className="py-5 text-md leading-normal text-gray-500 lg:text-md xl:text-md dark:text-gray-300">
+              <p className="pb-5 pt-2 lg:py-5 text-md leading-normal text-gray-500 lg:text-md xl:text-md dark:text-gray-300">
                 Παρέχουμε υπηρεσίες υψηλού επιπέδου με τεχνογνωσία και συνέπεια.
                 Διεκπαιρεώνουμε μια ευρεία γκάμα ηλεκτρολογικών έργων, από μικρά
                 έως και πολύπλοκα, και είμαστε πάντα στη διάθεσή σας για να
@@ -49,15 +51,9 @@ export const Hero = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
+              className="w-full h-fit"
             >
-              <Image
-                src={heroImg}
-                width="616"
-                height="617"
-                className={"object-cover"}
-                alt="Hero Illustration"
-                loading="eager"
-              />
+              <CarouselComp />
             </motion.div>
           </div>
         </Container>

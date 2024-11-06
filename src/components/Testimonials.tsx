@@ -158,6 +158,21 @@ export const Gallery: React.FC = () => {
           alt: "Gallery Image 7-2",
           title: "",
         },
+        {
+          src: "/img/cat2/gallery8-2.jpg",
+          alt: "Gallery Image 8-2",
+          title: "",
+        },
+        {
+          src: "/img/cat2/gallery9-2.jpg",
+          alt: "Gallery Image 9-2",
+          title: "",
+        },
+        {
+          src: "/img/cat2/gallery10-2.jpg",
+          alt: "Gallery Image 10-2",
+          title: "",
+        },
       ],
     },
     {
