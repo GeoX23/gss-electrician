@@ -39,7 +39,6 @@ export function CarouselComp() {
             slideInterval={2000}
             indicators={true}
             slide={false}
-            defaultSlide={selectedImageIndex}
             onSlideChange={setCurrentSlide}
           >
             {images.map((src, index) => (
@@ -59,11 +58,7 @@ export function CarouselComp() {
       </Modal>
 
       <div className="h-[200px] sm:h-[400px] w-full relative block">
-        <Carousel
-          slideInterval={2000}
-          defaultSlide={currentSlide}
-          onSlideChange={setCurrentSlide}
-        >
+        <Carousel slideInterval={2000} onSlideChange={setCurrentSlide}>
           {images.map((src, index) => (
             <div
               key={index}
