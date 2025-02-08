@@ -21,7 +21,7 @@ export function Review(props: Readonly<ReviewProps>) {
         <div className="text-black">{props.reviewText}</div>
       </Modal>
       <motion.div
-        className=" dark:bg-white bg-slate-50 rounded-lg hover:drop-shadow-md flex flex-col p-4 text-black gap-2 min-w-60 lg:w-80 w-full items-start"
+        className=" dark:bg-white bg-slate-50 rounded-lg hover:drop-shadow-md flex flex-col p-4 text-black gap-2 min-w-60 lg:w-80 w-full items-start cursor-pointer"
         onClick={toggleModal}
       >
         <div className="text-lg font-bold">{props.name}</div>

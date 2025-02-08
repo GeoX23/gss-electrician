@@ -2,7 +2,11 @@
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
-import { Disclosure } from "@headlessui/react";
+import {
+  DisclosureButton,
+  DisclosurePanel,
+  Disclosure,
+} from "@headlessui/react";
 import { useState } from "react";
 
 export const Navbar = () => {
@@ -44,7 +48,7 @@ export const Navbar = () => {
                   <div className="py-1 px-2 lg:hidden">
                     <ThemeChanger />
                   </div>
-                  <Disclosure.Button
+                  <DisclosureButton
                     id="menuButton"
                     aria-label="Toggle Menu"
                     className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
@@ -68,10 +72,10 @@ export const Navbar = () => {
                         />
                       )}
                     </svg>
-                  </Disclosure.Button>
+                  </DisclosureButton>
                 </div>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
+                <DisclosurePanel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
                     {navigation.map((item, index) => (
                       <Link
@@ -92,7 +96,7 @@ export const Navbar = () => {
                       Καλέστε μας
                     </Link>
                   </>
-                </Disclosure.Panel>
+                </DisclosurePanel>
               </div>
             </>
           )}
