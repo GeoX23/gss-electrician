@@ -6,6 +6,7 @@
   html,
   body {
     @apply dark:bg-trueGray-900;
+    overflow-x: hidden;
   }
 }
 
@@ -34,8 +35,8 @@
 .modal-main {
   position: fixed;
   background: white;
-  width: fit-content;
-  max-width: 400px;
+  width: 90%;
+  /* max-width: 400px; */
   height: auto;
   top: 40%;
   left: 50%;
@@ -50,6 +51,7 @@
 
 .modal-body {
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .modal.display-block {
@@ -81,4 +83,16 @@
   width: unset;
   max-height: 600px;
   object-fit: contain;
+}
+
+.group span {
+  background-color: #1877f2 !important;
+  border: none !important;
+}
+
+.group span:hover,
+.group span:focus,
+.group span:active {
+  background-color: #0749a0 !important;
+  border: none !important;
 }
