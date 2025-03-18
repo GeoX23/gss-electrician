@@ -16,10 +16,18 @@ export const Navbar = () => {
     "Αρχική",
     "Υπηρεσίες",
     "Έργα",
+    "Αξιολογήσεις",
     "Συχνές ερωτήσεις",
     "Επικοινωνία",
   ];
-  const links = ["#home", "#ypiresies", "#erga", "#faq", "#contact"];
+  const links = [
+    "/#home",
+    "/#ypiresies",
+    "/#erga",
+    "/reviews",
+    "/#faq",
+    "/#contact",
+  ];
   // const links = ["#home", "#ypiresies", "#faq", "#contact"];
 
   return (
