@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import heroImg from "../../public/img/hero.png";
 import { Review } from "./Review";
 import { motion } from "framer-motion";
+import Link from "next/link";
 export const Hero = () => {
   function clickProsfores(e: any) {
     document.getElementById("prosforesBtn")?.click();
@@ -66,28 +67,30 @@ export const Hero = () => {
         <div className="flex flex-col justify-center" id="reviews">
           <div className="text-xl text-center text-gray-700 dark:text-white">
             Πάνω από{" "}
-            <span className="text-indigo-600">
-              <strong>120 θετικές</strong>
-            </span>{" "}
-            αξιολογήσεις <br />
+            <Link href="/reviews">
+              <span className="text-indigo-600 underline">
+                <strong>120 θετικές αξιολογήσεις</strong>
+                <br />
+              </span>
+            </Link>
             σε{" "}
-            <a
+            <Link
               href="https://www.facebook.com/profile.php?id=100067818661953"
               target="_blank"
               rel="noopener noreferrer"
               className="text-indigo-600 font-bold"
             >
-              <u>Facebook</u>
-            </a>{" "}
+              Facebook
+            </Link>{" "}
             και{" "}
-            <a
+            <Link
               href="https://www.douleutaras.gr/dashboard-v2/profile/giannisstergiopoulos/?ref=Admin%20page"
               target="_blank"
               rel="noopener noreferrer"
               className="text-indigo-600 font-bold"
             >
-              <u>Douleutaras</u>
-            </a>
+              Douleutaras
+            </Link>
           </div>
 
           <motion.div

@@ -25,7 +25,7 @@ export function Footer() {
     "/",
     "tel: +306945335942",
     "mailto: electrician.stergiopoulos@gmail.com",
-    "https://maps.app.goo.gl/jiDWDH9oy6BDr6Wo7",
+    "https://maps.app.goo.gl/tqTJAKJkBv5JAMso6",
   ];
   return (
     <div className="relative">
@@ -129,13 +129,14 @@ export function Footer() {
                   {item}
                 </Link>
               ))}
-
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.36165570139!2d23.640334976489143!3d37.96868847193712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bba1c871ee31%3A0xd7374db5643547f6!2sDelmisou%201%2C%20Nikea%20184%2051!5e0!3m2!1sen!2sgr!4v1729691560227!5m2!1sen!2sgr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.3616544991237!2d23.6429099!3d37.9686885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bb00287076b3%3A0x7c282f323f26be65!2zzqPOpM6VzqHOk86Zzp_OoM6fzqXOm86fzqMgzpPOmc6Rzp3Onc6XzqMtzpfOm86VzprOpM6hzp_Om86fzpPOn86ZIM6dzpnOms6RzpnOkQ!5e0!3m2!1sen!2sgr!4v1742038735008!5m2!1sen!2sgr"
                 width="400"
-                height="250"
+                height="300"
+                style={{ border: "0" }}
+                allowFullScreen
                 loading="lazy"
-                className="px-4"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
