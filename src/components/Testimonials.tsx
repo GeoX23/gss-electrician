@@ -59,7 +59,7 @@ const GalleryItem: React.FC<GalleryItemProps & { onClick: () => void }> = ({
       className="flex flex-col items-center cursor-pointer"
       onClick={onClick}
     >
-      <div className="w-full h-64 relative overflow-hidden rounded-lg">
+      <div className="w-full h-[400px] relative overflow-hidden rounded-lg">
         <Image
           src={photos[0].src}
           alt={photos[0].alt}
@@ -79,236 +79,21 @@ const GalleryItem: React.FC<GalleryItemProps & { onClick: () => void }> = ({
 };
 
 export const Gallery: React.FC = () => {
-  const [items] = useState<GalleryItemProps[]>([
-    {
-      title: "Ηλεκτρολογικοί Πίνακες",
-      photos: [
-        {
-          src: "/img/cat1/gallery1-1.jpg",
-          alt: "Gallery Image 1-1",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery2-1.jpg",
-          alt: "Gallery Image 1-2",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery3-1.jpg",
-          alt: "Gallery Image 1-3",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery4-1.jpg",
-          alt: "Gallery Image 1-4",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery5-1.jpg",
-          alt: "Gallery Image 1-5",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery6-1.jpg",
-          alt: "Gallery Image 1-6",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery7-1.jpg",
-          alt: "Gallery Image 1-7",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery8-1.jpg",
-          alt: "Gallery Image 1-8",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery9-1.jpg",
-          alt: "Gallery Image 1-9",
-          title: "",
-        },
-        {
-          src: "/img/cat1/gallery10-1.jpg",
-          alt: "Gallery Image 1-10",
-          title: "",
-        },
-      ],
-    },
-    {
-      title: "Οικιακές Εγκαταστάσεις",
-      photos: [
-        {
-          src: "/img/cat2/gallery1-2.jpg",
-          alt: "Gallery Image 2-1",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery2-2.jpg",
-          alt: "Gallery Image 2-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery3-2.jpg",
-          alt: "Gallery Image 3-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery4-2.jpg",
-          alt: "Gallery Image 4-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery5-2.jpg",
-          alt: "Gallery Image 5-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery6-2.jpg",
-          alt: "Gallery Image 6-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery7-2.jpg",
-          alt: "Gallery Image 7-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery8-2.jpg",
-          alt: "Gallery Image 8-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery9-2.jpg",
-          alt: "Gallery Image 9-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery10-2.jpg",
-          alt: "Gallery Image 10-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery11-2.jpg",
-          alt: "Gallery Image 11-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery12-2.jpg",
-          alt: "Gallery Image 12-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery13-2.jpg",
-          alt: "Gallery Image 13-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery14-2.jpg",
-          alt: "Gallery Image 14-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery15-2.jpg",
-          alt: "Gallery Image 15-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery16-2.jpg",
-          alt: "Gallery Image 16-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery17-2.jpg",
-          alt: "Gallery Image 17-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery10-2.jpg",
-          alt: "Gallery Image 10-2",
-          title: "",
-        },
-        {
-          src: "/img/cat2/gallery10-2.jpg",
-          alt: "Gallery Image 10-2",
-          title: "",
-        },
-      ],
-    },
-    {
-      title: "Βιομηχανικές Εγκαταστάσεις",
-      photos: [
-        {
-          src: "/img/cat3/gallery1-3.jpg",
-          alt: "Gallery Image 3-1",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery2-3.jpg",
-          alt: "Gallery Image 3-2",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery3-3.jpg",
-          alt: "Gallery Image 3-3",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery4-3.jpg",
-          alt: "Gallery Image 3-4",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery5-3.jpg",
-          alt: "Gallery Image 3-5",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery6-3.jpg",
-          alt: "Gallery Image 3-6",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery7-3.jpg",
-          alt: "Gallery Image 3-7",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery8-3.jpg",
-          alt: "Gallery Image 3-8",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery9-3.jpg",
-          alt: "Gallery Image 3-9",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery10-3.jpg",
-          alt: "Gallery Image 3-10",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery11-3.jpg",
-          alt: "Gallery Image 3-11",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery12-3.jpg",
-          alt: "Gallery Image 3-12",
-          title: "",
-        },
-        {
-          src: "/img/cat3/gallery13-3.jpg",
-          alt: "Gallery Image 3-13",
-          title: "",
-        },
-      ],
-    },
-  ]);
+  const [items, setItems] = useState<GalleryItemProps[]>([]);
+  const [galleryLoading, setGalleryLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/gallery-images")
+      .then((res) => res.json())
+      .then((data: GalleryItemProps[]) => {
+        setItems(Array.isArray(data) ? data : []);
+      })
+      .catch(() => setItems([]))
+      .finally(() => setGalleryLoading(false));
+  }, []);
 
   const [selectedItem, setSelectedItem] = useState<GalleryItemProps | null>(
-    null
+    null,
   );
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(0);
 
@@ -355,19 +140,27 @@ export const Gallery: React.FC = () => {
     setIsClient(true);
   }, []);
 
+  const itemsWithPhotos = items.filter((item) => item.photos.length > 0);
+
   return (
     <Container>
       {isClient && (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {items.map((item, index) => (
-              <GalleryItem
-                key={index}
-                {...item}
-                onClick={() => openModal(item)}
-              />
-            ))}
-          </div>
+          {galleryLoading ? (
+            <div className="flex justify-center py-12 text-gray-500 dark:text-gray-400">
+              Φόρτωση γκαλερί...
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+              {itemsWithPhotos.map((item, index) => (
+                <GalleryItem
+                  key={index}
+                  {...item}
+                  onClick={() => openModal(item)}
+                />
+              ))}
+            </div>
+          )}
           <AnimatePresence>
             {selectedItem && (
               <Modal isOpen={true} onClose={closeModal}>

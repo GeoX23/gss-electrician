@@ -1,37 +1,46 @@
+"use client";
+
 import { Carousel } from "flowbite-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./Modal";
 
 export function CarouselComp() {
   const [showModal, setShowModal] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [images, setImages] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const images = [
-    "/img/carousel/car1_new.jpg",
-    "/img/carousel/car2_new.jpg",
-    "/img/carousel/car3.jpg",
-    "/img/carousel/car1.jpg",
-    "/img/carousel/car2.jpg",
-    "/img/carousel/car4.jpg",
-    "/img/carousel/car5.jpg",
-    "/img/carousel/car6.jpg",
-    "/img/carousel/car7.jpg",
-    "/img/carousel/car8.jpg",
-    "/img/carousel/car9.jpg",
-    "/img/carousel/car10.jpg",
-    "/img/carousel/car11.jpg",
-    "/img/carousel/car12.jpg",
-    "/img/carousel/car13.jpg",
-    "/img/carousel/car14.jpg",
-  ];
+  useEffect(() => {
+    fetch("/api/carousel-images")
+      .then((res) => res.json())
+      .then((data: string[]) => {
+        setImages(Array.isArray(data) ? data : []);
+      })
+      .catch(() => setImages([]))
+      .finally(() => setLoading(false));
+  }, []);
 
   const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
     setCurrentSlide(index);
     setShowModal(true);
   };
+
+  if (loading) {
+    return (
+      <div className="h-[200px] sm:h-[400px] w-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg">
+        <span className="text-gray-500 dark:text-gray-400">
+          Φόρτωση καρουζέλ...
+        </span>
+      </div>
+    );
+  }
+
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <>
