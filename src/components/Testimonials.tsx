@@ -63,9 +63,8 @@ const GalleryItem: React.FC<GalleryItemProps & { onClick: () => void }> = ({
         <Image
           src={photos[0].src}
           alt={photos[0].alt}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-300 hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-300 hover:scale-110"
           loading="lazy"
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
@@ -178,8 +177,7 @@ export const Gallery: React.FC = () => {
                     alt={selectedItem.photos[selectedPhotoIndex].alt}
                     width={800}
                     height={600}
-                    objectFit="contain"
-                    className="openModalImage"
+                    className="openModalImage object-contain"
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
