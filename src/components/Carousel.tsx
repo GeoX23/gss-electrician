@@ -65,13 +65,13 @@ export function CarouselComp() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={currentSlide === index}
                 />
-                {(index === 0 || index === 1) && (
+                {/* {(index === 0 || index === 1) && (
                   <div className="absolute top-[40px] left-[-40px] rotate-[-45deg] bg-red-600 text-white py-1 px-10 shadow-md z-10">
                     <span className="text-sm font-semibold">
                       Νέα συνεργασία
                     </span>
                   </div>
-                )}
+                )} */}
               </div>
             ))}
           </Carousel>

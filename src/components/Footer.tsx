@@ -17,7 +17,7 @@ export function Footer() {
     "Ηλεκτρολόγος",
     "+30 694 533 5942",
     "electrician.stergiopoulos@gmail.com",
-    "Δελμησού 1, Νίκαια Πειραιά",
+    "Κύπρου 94, Νίκαια Πειραιά",
   ];
 
   const legalLinks = [
