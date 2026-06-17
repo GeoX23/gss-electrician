@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-
+import { cn } from "@/lib/utils";
 import type { CarouselImageItem } from "./Carousel";
 
 type CarouselLightboxProps = {
@@ -20,6 +19,25 @@ type CarouselLightboxProps = {
 
 const SWIPE_THRESHOLD = 80;
 const VELOCITY_THRESHOLD = 400;
+const PRELOAD_RANGE = 2;
+
+function getWrappedIndex(index: number, length: number) {
+  return (index + length) % length;
+}
+
+function getIndicesAround(center: number, length: number, range: number) {
+  const indices = new Set<number>();
+  for (let offset = -range; offset <= range; offset += 1) {
+    indices.add(getWrappedIndex(center + offset, length));
+  }
+  return Array.from(indices);
+}
+
+function preloadImage(src: string) {
+  const img = new window.Image();
+  img.decoding = "async";
+  img.src = src;
+}
 
 export function CarouselLightbox({
   images,
@@ -33,12 +51,24 @@ export function CarouselLightbox({
     if (open) setIndex(initialIndex);
   }, [open, initialIndex]);
 
+  const mountedIndices = useMemo(
+    () => getIndicesAround(index, images.length, PRELOAD_RANGE),
+    [index, images.length]
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    mountedIndices.forEach((imageIndex) => {
+      preloadImage(images[imageIndex].src);
+    });
+  }, [open, mountedIndices, images]);
+
   const goPrev = useCallback(() => {
-    setIndex((current) => (current > 0 ? current - 1 : images.length - 1));
+    setIndex((current) => getWrappedIndex(current - 1, images.length));
   }, [images.length]);
 
   const goNext = useCallback(() => {
-    setIndex((current) => (current < images.length - 1 ? current + 1 : 0));
+    setIndex((current) => getWrappedIndex(current + 1, images.length));
   }, [images.length]);
 
   useEffect(() => {
@@ -61,10 +91,6 @@ export function CarouselLightbox({
 
   if (!open || images.length === 0) return null;
 
-  const currentImage = images[index];
-  const prevImage = images[index > 0 ? index - 1 : images.length - 1];
-  const nextImage = images[index < images.length - 1 ? index + 1 : 0];
-
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8"
@@ -86,49 +112,59 @@ export function CarouselLightbox({
         className="relative flex h-full w-full max-w-5xl flex-col items-center justify-center"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="relative h-[60vh] w-full sm:h-[75vh]">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={index}
-              className="absolute inset-0 touch-pan-y"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.2 }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.15}
-              onDragEnd={(_, info) => {
-                if (
-                  info.offset.x < -SWIPE_THRESHOLD ||
-                  info.velocity.x < -VELOCITY_THRESHOLD
-                ) {
-                  goNext();
-                } else if (
-                  info.offset.x > SWIPE_THRESHOLD ||
-                  info.velocity.x > VELOCITY_THRESHOLD
-                ) {
-                  goPrev();
-                }
-              }}
-            >
-              <Image
-                src={currentImage.src}
-                alt={currentImage.alt ?? `Εικόνα ${index + 1} από ${images.length}`}
-                fill
-                className="object-contain"
-                sizes="100vw"
-                quality={85}
-                priority
-              />
-            </motion.div>
-          </AnimatePresence>
+        <motion.div
+          className="relative h-[60vh] w-full touch-pan-y sm:h-[75vh]"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.15}
+          onDragEnd={(_, info) => {
+            if (
+              info.offset.x < -SWIPE_THRESHOLD ||
+              info.velocity.x < -VELOCITY_THRESHOLD
+            ) {
+              goNext();
+            } else if (
+              info.offset.x > SWIPE_THRESHOLD ||
+              info.velocity.x > VELOCITY_THRESHOLD
+            ) {
+              goPrev();
+            }
+          }}
+        >
+          {mountedIndices.map((imageIndex) => {
+            const image = images[imageIndex];
+            const isActive = imageIndex === index;
 
-          <div className="sr-only" aria-hidden>
-            <Image src={prevImage.src} alt="" width={1} height={1} />
-            <Image src={nextImage.src} alt="" width={1} height={1} />
-          </div>
-        </div>
+            return (
+              <div
+                key={image.src}
+                className={cn(
+                  "absolute inset-0 transition-opacity duration-200",
+                  isActive
+                    ? "z-10 opacity-100"
+                    : "pointer-events-none z-0 opacity-0"
+                )}
+                aria-hidden={!isActive}
+              >
+                {/* Pre-compressed WebP in /public — direct load avoids /_next/image latency */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={image.src}
+                  alt={
+                    isActive
+                      ? (image.alt ??
+                        `Εικόνα ${imageIndex + 1} από ${images.length}`)
+                      : ""
+                  }
+                  className="h-full w-full object-contain"
+                  decoding="async"
+                  loading="eager"
+                  draggable={false}
+                />
+              </div>
+            );
+          })}
+        </motion.div>
 
         <div className="mt-4 flex w-full items-center justify-between gap-4">
           <button

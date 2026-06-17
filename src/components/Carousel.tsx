@@ -96,16 +96,25 @@ export function ImageCarousel({
     if (!showLightbox) return;
     setLightboxIndex(index);
     setLightboxOpen(true);
+
+    const length = items.length;
+    for (let offset = -1; offset <= 1; offset += 1) {
+      const preloadIndex = (index + offset + length) % length;
+      const img = new window.Image();
+      img.src = items[preloadIndex].src;
+    }
   };
 
   if (items.length === 0) {
     return null;
   }
 
-  const shouldLoadImage = (index: number) =>
-    Math.abs(index - activeIndex) <= 1 ||
-    (activeIndex === 0 && index === items.length - 1) ||
-    (activeIndex === items.length - 1 && index === 0);
+  const shouldLoadImage = (index: number) => {
+    if (items.length <= 5) return true;
+    const diff = Math.abs(index - activeIndex);
+    const wrapDiff = Math.min(diff, items.length - diff);
+    return wrapDiff <= 2;
+  };
 
   const plugins = autoplay
     ? [
