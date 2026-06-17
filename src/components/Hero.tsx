@@ -1,14 +1,13 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import heroImg from "../../public/img/hero.png";
 import { Review } from "./Review";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { CarouselComp } from "./Carousel";
-
-export const Hero = () => {
+export const Hero = ({ carousel }: { carousel: ReactNode }) => {
   function clickProsfores(e: any) {
     document.getElementById("prosforesBtn")?.click();
   }
@@ -54,7 +53,7 @@ export const Hero = () => {
               viewport={{ once: true }}
               className="w-full h-fit"
             >
-              <CarouselComp />
+              {carousel}
             </motion.div>
           </div>
         </Container>

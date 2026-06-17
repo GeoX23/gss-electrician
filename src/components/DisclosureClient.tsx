@@ -81,7 +81,7 @@ export function DisclosureClient(props: Readonly<DisclosureClientProps>) {
           </DisclosureButton>
 
           <DisclosurePanel className="flex flex-wrap w-full my-5 lg:hidden">
-            <>
+            <div className="flex w-full flex-col">
               {navigation.map((item, index) => (
                 <Link
                   key={index}
@@ -98,7 +98,7 @@ export function DisclosureClient(props: Readonly<DisclosureClientProps>) {
               >
                 {cta.text}
               </Link>
-            </>
+            </div>
           </DisclosurePanel>
         </div>
       )}

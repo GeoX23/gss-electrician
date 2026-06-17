@@ -1,17 +1,18 @@
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
+import { CarouselSection } from "@/components/CarouselSection";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
 // import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
-import { Gallery } from "@/components/Testimonials";
+import { GallerySection } from "@/components/GallerySection";
 import { benefitOne } from "@/components/data";
 export default function Home() {
   return (
     <Container>
-      <Hero />
+      <Hero carousel={<CarouselSection />} />
       <SectionTitle
         id="ypiresies"
         preTitle="Υπηρεσίες"
@@ -38,7 +39,7 @@ export default function Home() {
         Παρακάτω μπορείτε να δείτε ολοκληρωμένα έργα από εμάς.
       </SectionTitle>
 
-      <Gallery />
+      <GallerySection />
 
       <SectionTitle id="faq" preTitle="FAQ" title="Συχνές ερωτήσεις">
         Μπορείτε να βρείτε απαντήσεις σε συχνές ερωτήσεις που πιθανόν να έχετε

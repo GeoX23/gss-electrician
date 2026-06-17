@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { Container } from "@/components/Container";
 import {
   Disclosure,
@@ -7,28 +7,47 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
+
+const PANEL_TRANSITION = { duration: 0.3, ease: "easeInOut" as const };
 
 export const Faq = () => {
   return (
     <Container className="!p-0">
       <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
-        {faqdata.map((item, index) => (
+        {faqdata.map((item) => (
           <div key={item.question} className="mb-5">
             <Disclosure>
               {({ open }) => (
-                <>
-                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-gray-800 rounded-t-lg bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-indigo-100 focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200">
+                <div>
+                  <DisclosureButton
+                    className={`flex w-full items-center justify-between px-4 py-4 text-left text-md text-gray-800 bg-gray-50 transition-colors duration-300 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-indigo-100 focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200 ${
+                      open ? "rounded-t-lg" : "rounded-lg"
+                    }`}
+                  >
                     <span>{item.question}</span>
                     <ChevronUpIcon
-                      className={`${
-                        open ? "transform rotate-180" : ""
-                      } w-5 h-5 text-indigo-500`}
+                      className={`h-5 w-5 shrink-0 text-indigo-500 transition-transform duration-300 ease-in-out ${
+                        open ? "rotate-0" : "rotate-180"
+                      }`}
                     />
                   </DisclosureButton>
-                  <DisclosurePanel className="px-4 pt-4 pb-2 text-gray-500 dark:text-gray-300 dark:bg-trueGray-500 rounded-b-lg bg-gray-200">
-                    {item.answer}
+                  <DisclosurePanel static className="overflow-hidden">
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: open ? "auto" : 0,
+                        opacity: open ? 1 : 0,
+                      }}
+                      transition={PANEL_TRANSITION}
+                      className="overflow-hidden"
+                    >
+                      <div className="rounded-b-lg bg-gray-200 px-4 pt-4 pb-4 text-gray-500 dark:bg-trueGray-500 dark:text-gray-300">
+                        {item.answer}
+                      </div>
+                    </motion.div>
                   </DisclosurePanel>
-                </>
+                </div>
               )}
             </Disclosure>
           </div>

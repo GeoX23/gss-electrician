@@ -69,7 +69,7 @@ export function PopupWidget() {
     <div>
       <Disclosure>
         {({ open }) => (
-          <>
+          <div>
             <DisclosureButton
               id="prosforesBtn"
               className="fixed z-40 flex items-center justify-center transition duration-300 bg-indigo-500 rounded-full shadow-lg right-5 bottom-5 w-14 h-14 focus:outline-none hover:bg-indigo-600 focus:bg-indigo-600 ease"
@@ -77,6 +77,8 @@ export function PopupWidget() {
               <span className="sr-only">Άνοιξτε την φόρμα επικοινωνίας</span>
               <Transition
                 show={!open}
+                as="div"
+                className="absolute inset-0 flex items-center justify-center"
                 enter="transition duration-200 transform ease"
                 enterFrom="opacity-0 -rotate-45 scale-75"
                 leave="transition duration-100 transform ease"
@@ -104,8 +106,8 @@ export function PopupWidget() {
                 enterFrom="opacity-0 rotate-45 scale-75"
                 leave="transition duration-100 transform ease"
                 leaveTo="opacity-0 rotate-45"
-                className="absolute w-6 h-6 text-white"
-                as={"div"}
+                className="absolute inset-0 flex items-center justify-center"
+                as="div"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -399,7 +401,7 @@ export function PopupWidget() {
                 </div>
               </DisclosurePanel>
             </Transition>
-          </>
+          </div>
         )}
       </Disclosure>
     </div>

@@ -36,7 +36,7 @@ export const Navbar = () => {
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
-            <>
+            <div className="w-full lg:w-auto">
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <Link href="/">
                   <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
@@ -84,7 +84,7 @@ export const Navbar = () => {
                 </div>
 
                 <DisclosurePanel className="flex flex-wrap w-full my-5 lg:hidden">
-                  <>
+                  <div className="flex w-full flex-col">
                     {navigation.map((item, index) => (
                       <Link
                         key={index}
@@ -103,10 +103,10 @@ export const Navbar = () => {
                     >
                       Καλέστε μας
                     </Link>
-                  </>
+                  </div>
                 </DisclosurePanel>
               </div>
-            </>
+            </div>
           )}
         </Disclosure>
 
