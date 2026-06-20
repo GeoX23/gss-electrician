@@ -7,7 +7,7 @@ const WEBP_QUALITY = 82;
 const SOURCE_EXTENSIONS = [".jpg", ".jpeg", ".png"];
 const IMG_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp", ".gif"];
 
-const FOLDERS = ["carousel", "cat1", "cat2", "cat3", "cat4", "cat5", "cat6"];
+const FOLDERS = ["compressed"];
 
 function getPublicImgPath(folder: string): string {
   return path.join(process.cwd(), "public", "img", folder);
@@ -18,10 +18,10 @@ function listImageFiles(dirPath: string): string[] {
   return fs
     .readdirSync(dirPath)
     .filter((file: string) =>
-      IMG_EXTENSIONS.includes(path.extname(file).toLowerCase())
+      IMG_EXTENSIONS.includes(path.extname(file).toLowerCase()),
     )
     .sort((a: string, b: string) =>
-      a.localeCompare(b, undefined, { numeric: true })
+      a.localeCompare(b, undefined, { numeric: true }),
     );
 }
 
@@ -91,7 +91,7 @@ async function compressFolder(folder: string) {
         processed += 1;
         const after = fs.statSync(result.outputPath).size;
         console.log(
-          `  ✓ ${file} → ${path.basename(result.outputPath)} (${formatBytes(before)} → ${formatBytes(after)})`
+          `  ✓ ${file} → ${path.basename(result.outputPath)} (${formatBytes(before)} → ${formatBytes(after)})`,
         );
       }
     } catch (error) {
@@ -117,7 +117,7 @@ async function main() {
   }
 
   console.log(
-    `Ολοκληρώθηκε: ${totalProcessed} εικόνες, εξοικονόμηση ${formatBytes(totalSaved)}`
+    `Ολοκληρώθηκε: ${totalProcessed} εικόνες, εξοικονόμηση ${formatBytes(totalSaved)}`,
   );
 }
 
